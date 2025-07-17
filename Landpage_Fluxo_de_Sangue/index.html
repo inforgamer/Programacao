@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxo de Sangue</title>
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <script src="assets/js/valida.js"></script>
+</head>
+
+<body>
+    <!-- Barra de navegação interna -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#sobre">Sobre o Livro</a></li>
+            <li><a href="#criticas">Críticas</a></li>
+            <li><a href="#capitulo">Primeiro Capítulo</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    <div class="container" id="sobre">
+        <div class="apresentacao-flex">
+            <div class="apresentacao-capa">
+                <img src="assets/img/capa%202.png" alt="Capa do livro Fluxo de Sangue" class="capa">
+            </div>
+            <div class="apresentacao-info">
+                <div class="apresentacao-titulo">Fluxo de Sangue</div>
+                <div class="apresentacao-desc">
+                    Um romance sombrio e visceral, onde um herói quebrado é forjado na perda e se torna uma arma viva.
+                    Em um mundo onde pactos de poder substituem a magia, cada escolha deixa marcas profundas no corpo e
+                    na alma. Prepare-se para uma jornada intensa, repleta de ação, dilemas morais e alianças
+                    improváveis.
+                </div>
+                <div class="topicos">
+                    <div class="topico">Herói forjado na perda e punhos de metal</div>
+                    <div class="topico">Realidade fraturada e memórias traiçoeiras</div>
+                    <div class="topico">Ação visceral com consequências reais</div>
+                    <div class="topico">Pactos de poder e traições</div>
+                    <div class="topico">Aliança entre força bruta e estratégia</div>
+                    <div class="topico">Vilões que manipulam leis do universo</div>
+                    <div class="topico">Conflitos entre destino e livre-arbítrio</div>
+                </div>
+                <div class="frase-efeito">
+                    "O destino é uma linha que nós próprios criamos com base em nossas ações passadas, na qual moldam
+                    nosso presente e servirão como base para o nosso futuro"
+                </div>
+                <div class="lancamento">
+                    Lançamento em breve! E-book disponível na Amazon.
+                </div>
+            </div>
+        </div>
+        <div class="criticas" id="criticas">
+            <div class="criticas-titulo">Críticas de quem leu</div>
+            <div class="criticas-lista">
+                <div class="critica">
+                    "A dinâmica entre o músculo e o cérebro, a fúria e a estratégia, é o que eleva esta história a outro
+                    nível. A, parceria
+                    entre Edward e Rebecca é o coração pulsante de um universo implacável."<br><span>— Gemini</span>
+                </div>
+                <div class="critica">
+                    "Narrativa corajosa e intensa. Fluxo de Sangue não te dá descanso — te arrasta junto com os
+                    personagens até o fim.
+                    Recomendo com força."<br><span>—
+                        Chat GPT</span>
+                </div>
+                <div class="critica">
+                    "Esse livro contém uma história envolvente, na qual sempre instiga ao leitor a saber oque vai
+                    ocorrer no próximo
+                    capítulo, adorei como é contada sobre a trajetória de Edward e seus companheiros"<br><span>—
+                        Black</span>
+                </div>
+                <div class="critica">
+                    "Fenomenal! Esse livro foi muito bem escrito. Mudou meus parâmetros para a ficção! Grande Jules
+                    Verne ficaria orgulhoso.
+                    Recomendo muito!"<br><span>— Elétrico.</span>
+                </div>
+            </div>
+        </div>
+        <div style="margin:40px 0 0 0; text-align:center;" id="capitulo">
+            <a href="capitulo1.html" class="lancamento">Leia o primeiro capítulo</a>
+        </div>
+        <form name="formLivro" id="contato" action="assets/processa.php" method="POST"
+            onsubmit="return validarFormulario(event);" style="margin-top:48px;">
+            <label for="nome">Nome*</label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+
+            <label for="endereco">Endereço*</label>
+            <input type="text" id="endereco" name="endereco" required placeholder="Rua, número, bairro, cidade">
+
+            <label for="data_nascimento">Data de Nascimento*</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" required placeholder="dd/mm/aaaa">
+
+            <label for="email">E-mail*</label>
+            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+
+            <label for="telefone">Telefone*</label>
+            <input type="tel" id="telefone" name="telefone" required placeholder="(99) 99999-9999">
+
+            <label for="mensagem">Por que você se interessou pelo livro?</label>
+            <textarea id="mensagem" name="mensagem" rows="3"
+                placeholder="Conte um pouco sobre seu interesse..."></textarea>
+
+            <div id="erro" class="erro"></div>
+            <button type="submit">Enviar</button>
+            <div id="sucesso" class="sucesso" style="display:none;"></div>
+        </form>
+    </div>
+    <script src="assets/js/valida.js"></script>
+    <script>
+        // Scroll suave
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Validação de formulário no front-end
+        function validarFormulario(event) {
+            event.preventDefault();
+            let erro = '';
+            const nome = document.getElementById('nome').value.trim();
+            const endereco = document.getElementById('endereco').value.trim();
+            const data = document.getElementById('data_nascimento').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            if (!nome) erro += 'Preencha o nome.\n';
+            if (!endereco) erro += 'Preencha o endereço.\n';
+            if (!data) erro += 'Preencha a data de nascimento.\n';
+            if (!email) erro += 'Preencha o e-mail.\n';
+            if (!telefone) erro += 'Preencha o telefone.\n';
+            if (erro) {
+                document.getElementById('erro').innerText = erro;
+                document.getElementById('erro').style.display = 'block';
+                return false;
+            } else {
+                document.getElementById('erro').style.display = 'none';
+                event.target.submit();
+            }
+        }
+
+        // Fade-in com Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.critica, .apresentacao-flex, form').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
